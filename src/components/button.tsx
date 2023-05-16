@@ -11,7 +11,10 @@ const Button = ({
 }: IProps): JSX.Element => (
   <button
     onClick={onClick}
-    className={`px-4 py-2 hover:bg-blue-300 rounded text-white bg-blue-400 ${className ?? ''}`}
+    className={`
+      px-4 py-2 transition-colors shadow-md hover:bg-blue-300 rounded
+      text-white bg-blue-400 ${className ?? ''}
+    `}
     type={type}
   >
     {children}

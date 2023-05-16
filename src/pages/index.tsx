@@ -1,6 +1,8 @@
 import Header from '@/components/header'
 import GetExtension from '@/components/GetExtension'
 import Hero from '@/components/hero'
+import HeroTransition from '../../public/hero-transition.svg'
+import Image from 'next/image'
 
 interface Props {
   id?: string
@@ -17,14 +19,13 @@ export default function Home (): JSX.Element {
 
       <Spacer className='bg-slate-200' />
       <Hero />
-      <Spacer className='bg-slate-200' />
+      {/* <Spacer className='bg-slate-200' /> */}
+      <Image src={HeroTransition} alt='' />
 
       <Spacer id='getExtensionTopSpacer' />
       <GetExtension />
       <Spacer />
-
-      {/* TODO: remove */}
-      <Spacer className='bg-red-200 h-[1200px]' />
+      <Image src={HeroTransition} className='rotate-180' alt='' />
 
     </main>
   )

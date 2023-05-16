@@ -29,8 +29,8 @@ export default async function handler (req: NextApiRequest, res: NextApiResponse
           }
         ],
         mode: 'subscription',
-        success_url: `${req.headers.origin}/?success=true`,
-        cancel_url: `${req.headers.origin}/?canceled=true`,
+        success_url: `${req.headers.origin}/checkout?status=success`,
+        cancel_url: `${req.headers.origin}/?checkout?status=fail`,
         automatic_tax: { enabled: true }
       })
 

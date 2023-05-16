@@ -29,7 +29,7 @@ export const ArrowLink = ({ text, href, direction = 'right' }: IProps): JSX.Elem
         h-4
         ${direction === 'left'
           ? 'group-hover:-translate-x-2 rotate-180'
-          : 'group-hover:translate-x-2'
+          : 'group-hover:-rotate-45'
         }
         group-hover:text-blue-600 transition-all text-blue-400
       `}

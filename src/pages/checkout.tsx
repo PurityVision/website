@@ -1,59 +1,36 @@
-import React from 'react'
-import { loadStripe } from '@stripe/stripe-js'
+import Button from '@/components/button'
+import Header from '@/components/header'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 
-// Make sure to call `loadStripe` outside of a component’s render to avoid
-// recreating the `Stripe` object on every render.
-loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ?? ''
-).catch(err => console.log(err))
+export default function Checkout (): JSX.Element {
+  const router = useRouter()
 
-export default function PreviewPage (): JSX.Element {
-  React.useEffect(() => {
-    // Check to see if this is a redirect back from Checkout
-    const query = new URLSearchParams(window.location.search)
-    if (query.get('success') !== null) {
-      console.log('Order placed! You will receive an email confirmation.')
-    }
-
-    if (query.get('canceled') !== null) {
-      console.log('Order canceled -- continue to shop around and checkout when you’re ready.')
-    }
-  }, [])
-
-  return (
-    <form action='/api/checkout_sessions' method='POST'>
-      <section>
-        <button type='submit' role='link'>
-          Checkout
-        </button>
-      </section>
-      <style jsx>
-        {`
-          section {
-            background: #ffffff;
-            display: flex;
-            flex-direction: column;
-            width: 400px;
-            height: 112px;
-            border-radius: 6px;
-            justify-content: space-between;
-          }
-          button {
-            height: 36px;
-            background: #556cd6;
-            border-radius: 4px;
-            color: white;
-            border: 0;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
-          }
-          button:hover {
-            opacity: 0.8;
-          }
-        `}
-      </style>
-    </form>
-  )
+  if (router.query.status === 'success') {
+    return (
+      <>
+        <Header />
+        <div className='p-8'>
+          <h1 className='text-3xl font-bold mb-2'>✅ Order Confirmed! ✅</h1>
+          <p className='mb-4'>Check your email for your license key.</p>
+          <Button className='uppercase'>
+            <Link href='#'>
+              Get Extension
+            </Link>
+          </Button>
+          <div className='mt-2'>
+            <Link href='/' className='text-blue-400'>
+              GO BACK
+            </Link>
+          </div>
+        </div>
+      </>
+    )
+  } else {
+    return (
+      <>
+        <div>something went wrong with your payment</div>
+      </>
+    )
+  }
 }

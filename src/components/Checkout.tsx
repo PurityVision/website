@@ -29,7 +29,7 @@ export default function Checkout (): JSX.Element {
     <form action='/api/checkout_sessions' method='POST'>
       <section>
         <Button type='submit'>
-          Checkout
+          Subscribe for $1.99
         </Button>
       </section>
     </form>

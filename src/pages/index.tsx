@@ -1,4 +1,4 @@
-import FreeTrial from '@/components/FreeTrial.tsx~'
+import FreeTrial from '@/components/FreeTrial'
 import GetExtension from '@/components/GetExtension'
 import Header from '@/components/header'
 import Hero from '@/components/hero'

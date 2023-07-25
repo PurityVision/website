@@ -7,7 +7,7 @@ import Button from './button'
 
 const Hero: React.FC = (): JSX.Element => {
   return (
-    <div className='px-32 bg-white flex items-center bg-lightBlue'>
+    <div className='px-32 flex items-center bg-lightBlue'>
       <div className='w-full h-1/2 py-4'>
         <div className='w-fit mx-auto mb-8'>
           <p>PURITY VISION</p>

@@ -42,7 +42,7 @@ const FreeTrial = (): JSX.Element => {
         <div className='mx-auto w-fit gap-16 flex items-center justify-center'>
           <div>
             <h2 className='text-xl text-gray-700 font-semibold'>FREE BETA TRIAL</h2>
-            <p className='text-sm'>Sign up for a free 30 day trial</p>
+            <p className='text-sm'>Sign up for a free trial</p>
           </div>
           <form onSubmit={e => { void handleBetaSignup(e) }}>
             <input

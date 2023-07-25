@@ -4,7 +4,6 @@ import { useSession } from 'next-auth/react'
 
 const Account = (): JSX.Element => {
   const { data: session } = useSession()
-  console.log(session?.user.isSubscribed)
 
   return (
     <>
@@ -17,7 +16,7 @@ const Account = (): JSX.Element => {
         </div>
         : <div>
           <p>Welcome {session.user.email}</p>
-          </div>}
+        </div>}
 
       <div>
         account page

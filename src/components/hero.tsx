@@ -1,22 +1,31 @@
 // import ScrollButton from './scrollButton'
 
+import Image from 'next/image'
+import PurityLogo from '../../public/purity-logo.png'
+import Showcase from '../../public/purity-vision-screenshot.png'
+import Button from './button'
+
 const Hero: React.FC = (): JSX.Element => {
   return (
-    <div className='px-32 bg-slate-200 flex items-center'>
-      <div className='flex justify-between w-full h-1/2'>
-        <div>
+    <div className='px-32 bg-white flex items-center bg-lightBlue'>
+      <div className='w-full h-1/2 py-4'>
+        <div className='w-fit mx-auto mb-8'>
           <p>PURITY VISION</p>
-          <h1 className='text-4xl font-bold'>Keep the Web <span className='border-blue-400 border-b-8'>Pure.</span></h1>
-          <div className='w-fit mt-8'>
-            {/* <ScrollButton target='#getExtensionTopSpacer'>Start Now</ScrollButton> */}
-            {/* {((session?.user) == null)
-              ? <LoginButton>Start Now</LoginButton>
-              : <ScrollButton target='#getExtensionTopSpacer'>Start Now</ScrollButton>} */}
-          </div>
+          <h1 className='text-4xl font-bold mb-8'>
+            Keep the Web <span className='border-blue-400 border-b-8'>Pure.</span>
+          </h1>
+          <p className='text-xl'>
+            Browse websites with&nbsp;
+            <span className='text-green-400 font-bold'>peace of mind.</span>
+          </p>
+          <p className='text-xl'>
+            Harness Google's Machine Learning to filter&nbsp;
+            <span className='text-red-400 font-bold'>explicit images.</span>
+          </p>
         </div>
-
-        {/* TODO: cool animated spline thingerino */}
-        <div className='bg-red-100 h-48 w-48' />
+        <div className='border border-2 rounded-[10px] w-fit mx-auto'>
+          <Image src={Showcase} alt='' />
+        </div>
       </div>
     </div>
   )

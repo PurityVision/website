@@ -1,8 +1,9 @@
-import Header from '@/components/header'
+import FreeTrial from '@/components/FreeTrial.tsx~'
 import GetExtension from '@/components/GetExtension'
+import Header from '@/components/header'
 import Hero from '@/components/hero'
-import HeroTransition from '../../public/hero-transition.svg'
 import Image from 'next/image'
+import Wave from '../../public/blue-wave.svg'
 
 interface Props {
   id?: string
@@ -12,21 +13,19 @@ const Spacer: React.FC<Props> = ({ className, id }): JSX.Element => (
   <div id={id ?? ''} className={`${className ?? ''} w-full h-32`} />
 )
 
-export default function Home (): JSX.Element {
+export default function Home(): JSX.Element {
   return (
     <main>
       <Header />
-
-      <Spacer className='bg-slate-200' />
+      <FreeTrial />
+      <Spacer className='bg-lightBlue' />
       <Hero />
-      {/* <Spacer className='bg-slate-200' /> */}
-      <Image src={HeroTransition} alt='' />
-
+      <Spacer className='bg-lightBlue' />
+      <Image src={Wave} alt='' />
       <Spacer id='getExtensionTopSpacer' />
       <GetExtension />
       <Spacer />
-      <Image src={HeroTransition} className='rotate-180' alt='' />
-
+      <Image src={Wave} className='rotate-180' alt='' />
     </main>
   )
 }

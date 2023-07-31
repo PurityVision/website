@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from './button'
-import { getStripePrice } from '@/utils'
+import { toast } from 'react-hot-toast'
 
 // 4242 4242 4242 4242
 
@@ -27,8 +27,11 @@ export default function Checkout(): JSX.Element {
   return (
     <form action='/api/checkout_sessions' method='POST'>
       <section>
-        <Button type='submit' className=''>
-          Subscribe for <span className='text-yellow-400'>{getStripePrice()}$</span> per 1000 images
+        <Button type='submit' className='' onClick={e => {
+          e.preventDefault()
+          toast.success('Coming soon')
+        }}>
+          Subscribe
         </Button>
       </section>
     </form>

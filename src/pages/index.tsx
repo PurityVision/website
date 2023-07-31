@@ -21,11 +21,11 @@ export default function Home(): JSX.Element {
       <Spacer />
       <Hero />
       <Spacer className='bg-lightBlue' />
-      <Image src={Wave} alt='' />
+      <Image src={Wave} alt='' className='w-full' />
       <Spacer id='getExtensionTopSpacer' />
       <GetExtension />
       <Spacer />
-      <Image src={Wave} className='rotate-180' alt='' />
+      <Image src={Wave} className='w-full rotate-180' alt='' />
     </main>
   )
 }

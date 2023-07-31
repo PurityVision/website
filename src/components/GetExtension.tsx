@@ -7,6 +7,7 @@ import GithubLogo from '../../public/github.png'
 import { ArrowLink } from './ArrowLink'
 import Checkout from './Checkout'
 import { loadStripe } from '@stripe/stripe-js'
+import { getStripePrice } from '@/utils'
 
 const StepTitle = ({ children }: { children: ReactNode }): JSX.Element => (
   <h2 className='text-3xl font-extrabold mb-2'>{children}</h2>
@@ -70,10 +71,14 @@ const GetExtension = (): JSX.Element => {
         {/* Subscribe Step */}
         <div>
           <StepTitle>Pay As You Go</StepTitle>
+          <p className='text-xl my-8 border w-fit px-2 rounded border-green-400'>
+            <span className='text-green-600 text-xl font-extrabold'>{getStripePrice()}$</span> / 1k images
+          </p>
           <div>
-            <ul className='list-disc my-8 px-4'>
+            <ul className='list-[square] my-8 px-4 text-lg lh-4'>
+              <li>e.g. filtering a web page with 100 images costs ${(getStripePrice() / 1000 * 100).toFixed(4)}!</li>
               <li>No monthly minimum charge</li>
-              <li>Only pay for each image filter</li>
+              <li>Only pay when the app is enabled and filtering images</li>
               <li>Never pay twice for the same image</li>
               <li>Cancel anytime</li>
             </ul>

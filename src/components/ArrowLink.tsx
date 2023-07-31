@@ -1,14 +1,17 @@
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { MouseEventHandler } from 'react'
 
 interface IProps {
   text: string
   direction?: 'left' | 'right'
+  onClick?: MouseEventHandler
+  target?: string
   href: string
 }
 
-export const ArrowLink = ({ text, href, direction = 'right' }: IProps): JSX.Element => (
+export const ArrowLink = ({ text, href, direction = 'right', onClick, target = '_self' }: IProps): JSX.Element => (
   <Link
     className={`
       text-blue-400
@@ -20,7 +23,9 @@ export const ArrowLink = ({ text, href, direction = 'right' }: IProps): JSX.Elem
       block
       w-fit
     `}
+    target={target}
     href={href}
+    onClick={onClick}
   >
     <span className='group-hover:text-blue-600'>{text}</span>
     <FontAwesomeIcon

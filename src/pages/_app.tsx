@@ -1,6 +1,5 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
-import { SessionProvider } from 'next-auth/react'
 import { Toaster } from 'react-hot-toast'
 import { Inter } from 'next/font/google'
 
@@ -12,11 +11,9 @@ const inter = Inter({
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
-    <SessionProvider>
-      <main className={inter.className}>
-        <Toaster />
-        <Component {...pageProps} />
-      </main>
-    </SessionProvider>
+    <main className={inter.className}>
+      <Toaster />
+      <Component {...pageProps} />
+    </main>
   )
 }

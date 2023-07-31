@@ -1,18 +1,17 @@
 import React from 'react'
-import { loadStripe } from '@stripe/stripe-js'
 import Button from './button'
+import { getStripePrice } from '@/utils'
 
 // 4242 4242 4242 4242
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
-loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ?? ''
-).catch(err => console.log(err))
+//loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ?? '')
+//  .catch(err => console.log(err))
 
 // const notify = (): string => toast('Here is your toast.')
 
-export default function Checkout (): JSX.Element {
+export default function Checkout(): JSX.Element {
   // React.useEffect(() => {
   //   // Check to see if this is a redirect back from Checkout
   //   const query = new URLSearchParams(window.location.search)
@@ -28,8 +27,8 @@ export default function Checkout (): JSX.Element {
   return (
     <form action='/api/checkout_sessions' method='POST'>
       <section>
-        <Button type='submit'>
-          Subscribe for $1.99
+        <Button type='submit' className=''>
+          Subscribe for <span className='text-yellow-400'>{getStripePrice()}$</span> per 1000 images
         </Button>
       </section>
     </form>

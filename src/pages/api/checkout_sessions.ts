@@ -5,6 +5,13 @@ import Stripe from 'stripe'
 
 const stripeSecKey = process.env.STRIPE_SECRET_KEY
 if (stripeSecKey === undefined) {
+  console.log('stripe secret key not found in environment')
+  exit(1)
+}
+
+const stripePriceID = process.env.STRIPE_PRICE_ID
+if (stripePriceID === undefined) {
+  console.log('stripe price ID not found in environment')
   exit(1)
 }
 
@@ -12,7 +19,7 @@ const stripe = new Stripe(stripeSecKey, {
   apiVersion: '2022-11-15'
 })
 
-export default async function handler (req: NextApiRequest, res: NextApiResponse): Promise<void> {
+export default async function handler(req: NextApiRequest, res: NextApiResponse): Promise<void> {
   if (req.method === 'POST') {
     try {
       if (req.headers.origin === undefined) {
@@ -21,13 +28,7 @@ export default async function handler (req: NextApiRequest, res: NextApiResponse
       }
       // Create Checkout Sessions from body params.
       const session = await stripe.checkout.sessions.create({
-        line_items: [
-          {
-            // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-            price: 'price_1N1GmQEDxNZJTkdH5pSyF2UH',
-            quantity: 1
-          }
-        ],
+        line_items: [{ price: stripePriceID }],
         mode: 'subscription',
         success_url: `${req.headers.origin}/checkout?status=success`,
         cancel_url: `${req.headers.origin}/?checkout?status=fail`,

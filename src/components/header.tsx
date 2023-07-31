@@ -1,20 +1,21 @@
-import Button from './button'
-import Logo from '../../public/purity-logo.png'
 import Image from 'next/image'
+import Logo from '../../public/purity-logo.png'
+import { OutlineButton } from './button'
+
+const billingURL = process.env.NEXT_PUBLIC_STRIPE_BILLING_URL
 
 const Header: React.FC = (): JSX.Element => {
   return (
-    <header className='flex justify-between p-8 border-b shadow-sm'>
+    <header className='flex flex-wrap gap-4 justify-between p-8 border-b'>
       <div className='flex items-center gap-4'>
         <Image src={Logo} alt='' className='w-12' />
-        <p className='text-xl font-bold uppercase text-blue-400'>Purity Vision</p>
+        <p className='text-xl font-extrabold uppercase text-transparent bg-clip-text bg-gradient-to-br from-green-300 to-blue-400'>Purity Vision</p>
       </div>
-      <Button>
-        <a href='https://billing.stripe.com/p/login/test_5kAcPK8h1c376C4cMM'>
+      <a href={billingURL}>
+        <OutlineButton>
           Manage Subscription
-        </a>
-      </Button>
-
+        </OutlineButton>
+      </a>
     </header >
   )
 }

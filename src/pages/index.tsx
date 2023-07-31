@@ -10,7 +10,7 @@ interface Props {
   className?: string
 }
 const Spacer: React.FC<Props> = ({ className, id }): JSX.Element => (
-  <div id={id ?? ''} className={`${className ?? ''} w-full h-32`} />
+  <div id={id ?? ''} className={`${className ?? ''} w-full h-12 sm:h-32`} />
 )
 
 export default function Home(): JSX.Element {
@@ -18,7 +18,7 @@ export default function Home(): JSX.Element {
     <main>
       <Header />
       <FreeTrial />
-      <Spacer className='bg-lightBlue' />
+      <Spacer />
       <Hero />
       <Spacer className='bg-lightBlue' />
       <Image src={Wave} alt='' />

@@ -1,6 +1,6 @@
 import { FormEvent, useState } from 'react'
-import Button from './button'
 import toast from 'react-hot-toast'
+import { OutlineButton } from './button'
 
 const FreeTrial = (): JSX.Element => {
   const [email, setEmail] = useState('')
@@ -38,13 +38,17 @@ const FreeTrial = (): JSX.Element => {
 
   return (
     <div>
-      <div className='w-full py-4'>
-        <div className='mx-auto w-fit gap-16 flex items-center justify-center'>
+      <div className='w-full px-8 py-4 border-b bg-green-100/50'>
+        <div className='mx-auto items-start sm:w-fit gap-4 sm:gap-16 flex flex-col sm:flex-row sm:items-center justify-center'>
           <div>
-            <h2 className='text-xl text-gray-700 font-semibold'>FREE BETA TRIAL</h2>
-            <p className='text-sm'>Sign up for a free trial</p>
+            <p className='text-sm uppercase bg-gradient-to-r from-green-400 to-blue-400 rounded-xl px-4 text-white'>
+              Sign up for a free trial
+            </p>
           </div>
-          <form onSubmit={e => { void handleBetaSignup(e) }}>
+          <a href='https://k3v4s1ef850.typeform.com/to/zqZtEbzv' target='_blank'>
+            <OutlineButton className='md:ml-4 w-full'>Join Waitlist</OutlineButton>
+          </a>
+          {/* <form onSubmit={e => { void handleBetaSignup(e) }}>
             <input
               id='email'
               disabled={isSent}
@@ -56,12 +60,12 @@ const FreeTrial = (): JSX.Element => {
               value={email}
               onChange={e => setEmail(e.target.value)}
             />
-            <Button className='ml-4'>Get my free license</Button>
+            <OutlineButton className='ml-4'>Join Waitlist</OutlineButton>
           </form>
-
+ */}
         </div>
       </div>
-    </div>
+    </div >
   )
 }
 

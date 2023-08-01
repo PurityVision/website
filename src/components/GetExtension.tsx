@@ -30,13 +30,26 @@ const GetExtension = (): JSX.Element => {
 
   return (
     <div id='get-started' className='px-8 sm:px-32'>
-      <h1 className='text-4xl w-fit font-bold mb-16 bg-gradient-to-r from-green-300 to-blue-400 py-1'>Get Started</h1>
+      <h1 className='text-4xl w-fit font-extrabold mb-16 py-1'>Get Started</h1>
 
       <div className='flex flex-col md:flex-row gap-32 md:gap-4 justify-between'>
         {/* Install Step */}
         <div>
           <StepTitle>Install</StepTitle>
           <div className='mt-8'>
+            <div>
+              <p className='text-xl font-semibold'>Get on the Chrome store</p>
+              <div className='flex items-center gap-4'>
+                <Image src={ChromeLogo} alt='' className='h-fit' />
+                <ArrowLink
+                  text='Install Extension'
+                  href='https://chrome.google.com/webstore/detail/purity-vision/ehejamagbbpikajgiienapjpoehgcpia'
+                />
+              </div>
+            </div>
+
+            <p className='my-8 font-bold'>OR</p>
+
             <div>
               <p className='text-xl font-semibold'>Install the latest release</p>
               <div className='flex items-center gap-2'>
@@ -49,20 +62,6 @@ const GetExtension = (): JSX.Element => {
               </div>
             </div>
 
-            <p className='my-8 font-bold'>OR</p>
-
-            <div>
-              <p className='text-gray-600'>(coming soon)</p>
-              <p className='text-xl font-semibold'>Get on the Chrome store</p>
-              <div className='flex items-center gap-4'>
-                <Image src={ChromeLogo} alt='' className='h-fit' />
-                <ArrowLink
-                  onClick={(e) => { e.preventDefault(); toast.success('Extension coming soon!') }}
-                  text='Install Extension'
-                  href=''
-                />
-              </div>
-            </div>
           </div>
         </div>
 
@@ -71,8 +70,8 @@ const GetExtension = (): JSX.Element => {
         {/* Subscribe Step */}
         <div>
           <StepTitle>Pay As You Go</StepTitle>
-          <p className='text-xl my-8 border w-fit px-2 rounded border-green-400'>
-            <span className='text-green-600 text-xl font-extrabold'>{getStripePrice()}$</span> / 1k images
+          <p className='text-xl my-8 border w-fit px-2 rounded border-green-400 bg-green-400'>
+            <span className='text-xl font-extrabold'>{getStripePrice()}$</span> / 1k images
           </p>
           <div>
             <ul className='list-[square] my-8 px-4 text-lg lh-4'>

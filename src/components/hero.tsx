@@ -4,7 +4,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import ChromeLogo from '../../public/chrome.svg'
 import Showcase from '../../public/purity-vision-screenshot.png'
-import { ArrowLink } from './ArrowLink'
 import Button from './button'
 
 const Hero: React.FC = (): JSX.Element => {
@@ -13,7 +12,7 @@ const Hero: React.FC = (): JSX.Element => {
       <div className='w-full h-1/2 py-4'>
         <div className='w-fit mx-auto mb-8'>
           <h1 className='text-6xl font-extrabold mb-8'>
-            Keep the Web <span className='bg-gradient-to-r from-green-300 to-blue-400'>Pure.</span>
+            Keep the Web <span className='text-transparent bg-clip-text bg-gradient-to-br from-green-500 to-blue-500'>Pure</span>
           </h1>
           <p className='text-xl'>
             Browse websites with&nbsp;

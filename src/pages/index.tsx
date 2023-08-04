@@ -17,9 +17,9 @@ export default function Home(): JSX.Element {
   return (
     <main>
       <Header />
-      <FreeTrial />
       <Spacer />
       <Hero />
+      <Spacer className='bg-lightBlue' />
       <Spacer className='bg-lightBlue' />
       <Image src={Wave} alt='' className='w-full' />
       <Spacer id='getExtensionTopSpacer' />

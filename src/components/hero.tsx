@@ -11,6 +11,16 @@ const Hero: React.FC = (): JSX.Element => {
     <div className='px-8 sm:px-32 flex items-center bg-gradient-to-b from-white to-lightBlue'>
       <div className='w-full h-1/2 py-4'>
         <div className='w-fit mx-auto mb-8'>
+          <div className='w-full my-8 justify-start align-center gap-4 sm:gap-8 flex'>
+            <div className='flex items-center'>
+              <p className='text-sm h-fit font-bold uppercase bg-gradient-to-r from-green-400 to-blue-400 rounded-xl px-4 text-white'>
+                Coming Soon
+              </p>
+            </div>
+            <a className='text-blue-400 border-transparent hover:text-green-400 transition-all border-b-2 hover:border-green-400 uppercase' href='https://k3v4s1ef850.typeform.com/to/zqZtEbzv' target='_blank'>
+              Get Access
+            </a>
+          </div>
           <h1 className='text-6xl font-extrabold mb-8'>
             Keep the Web <span className='text-transparent bg-clip-text bg-gradient-to-br from-green-500 to-blue-500'>Pure</span>
           </h1>

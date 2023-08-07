@@ -4,6 +4,7 @@ import Header from '@/components/header'
 import Hero from '@/components/hero'
 import Image from 'next/image'
 import Wave from '../../public/blue-wave.svg'
+import Footer from '@/components/Footer'
 
 interface Props {
   id?: string
@@ -26,6 +27,7 @@ export default function Home(): JSX.Element {
       <GetExtension />
       <Spacer />
       <Image src={Wave} className='w-full rotate-180' alt='' />
+      <Footer />
     </main>
   )
 }

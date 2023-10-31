@@ -1,17 +1,15 @@
-import React from 'react'
 import Button from './button'
-import { toast } from 'react-hot-toast'
 
 // 4242 4242 4242 4242
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
-//loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ?? '')
+// loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ?? '')
 //  .catch(err => console.log(err))
 
 // const notify = (): string => toast('Here is your toast.')
 
-export default function Checkout(): JSX.Element {
+export default function Checkout (): JSX.Element {
   // React.useEffect(() => {
   //   // Check to see if this is a redirect back from Checkout
   //   const query = new URLSearchParams(window.location.search)
@@ -27,10 +25,7 @@ export default function Checkout(): JSX.Element {
   return (
     <form action='/api/checkout_sessions' method='POST'>
       <section>
-        <Button type='submit' className='' onClick={e => {
-          e.preventDefault()
-          toast.success('Coming soon')
-        }}>
+        <Button type='submit'>
           Subscribe
         </Button>
       </section>

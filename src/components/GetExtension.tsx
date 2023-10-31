@@ -10,7 +10,7 @@ import { loadStripe } from '@stripe/stripe-js'
 import { getStripePrice } from '@/utils'
 
 const StepTitle = ({ children }: { children: ReactNode }): JSX.Element => (
-  <h2 className='text-3xl font-extrabold mb-2'>{children}</h2>
+  <h2 className='text-3xl font-bold mb-2'>{children}</h2>
 )
 
 loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ?? '')
@@ -30,12 +30,14 @@ const GetExtension = (): JSX.Element => {
 
   return (
     <div id='get-started' className='px-8 sm:px-32'>
-      <h1 className='text-4xl w-fit font-extrabold mb-16 py-1'>Get Started</h1>
+      <div className='mb-16 max-w-3xl'>
+        <h1 className='text-4xl w-fit font-extrabold py-1 mb-4'>Get Started</h1>
+      </div>
 
       <div className='flex flex-col md:flex-row gap-32 md:gap-4 justify-between'>
         {/* Install Step */}
         <div>
-          <StepTitle>Install</StepTitle>
+          <StepTitle>1. Install</StepTitle>
           <div className='mt-8'>
             <div>
               <p className='text-xl font-semibold'>Get on the Chrome store</p>
@@ -69,7 +71,7 @@ const GetExtension = (): JSX.Element => {
 
         {/* Subscribe Step */}
         <div>
-          <StepTitle>Pay As You Go</StepTitle>
+          <StepTitle>2. Pay As You Go</StepTitle>
           <p className='text-xl my-8 border w-fit px-2 rounded border-green-400 bg-green-400'>
             <span className='text-xl font-extrabold'>{getStripePrice()}$</span> / 1k images
           </p>
@@ -92,14 +94,14 @@ const GetExtension = (): JSX.Element => {
 
         {/* Step 3 */}
         <div>
-          <StepTitle>Enjoy</StepTitle>
+          <StepTitle>3. Enjoy</StepTitle>
           <div className='mt-8'>
             <p className='text-2xl'>Enjoy a pure web.</p>
           </div>
         </div>
 
       </div>
-    </div >
+    </div>
   )
 }
 

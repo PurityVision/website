@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import ChromeLogo from '../../public/chrome.svg'
-import Showcase from '../../public/purity-vision-screenshot.png'
+import Showcase from '../../public/showcase-1.png'
 import Button from './button'
 
 const Hero: React.FC = (): JSX.Element => {
@@ -17,7 +17,7 @@ const Hero: React.FC = (): JSX.Element => {
                 Coming Soon
               </p>
             </div>
-            <a className='text-blue-400 border-transparent hover:text-green-400 transition-all border-b-2 hover:border-green-400 uppercase' href='https://k3v4s1ef850.typeform.com/to/zqZtEbzv' target='_blank'>
+            <a className='text-blue-400 border-transparent hover:text-green-400 transition-all border-b-2 hover:border-green-400 uppercase' href='https://k3v4s1ef850.typeform.com/to/zqZtEbzv' target='_blank' rel='noreferrer'>
               Get Access
             </a>
           </div>
@@ -33,21 +33,23 @@ const Hero: React.FC = (): JSX.Element => {
             <span className='text-red-400 font-bold'>explicit images.</span>
           </p>
         </div>
-        <div className='border border-2 rounded-[10px] w-fit mx-auto'>
+        <div className='border border-2 rounded-[10px] w-fit mx-auto w-full xl:w-1/2'>
           <Image src={Showcase} alt='' priority />
         </div>
         <div className='mt-16 flex flex-col md:flex-row gap-4 justify-center'>
-          <Link href='https://chrome.google.com/webstore/detail/purity-vision/ehejamagbbpikajgiienapjpoehgcpia' target='_blank'>
+          <Link href='https://chrome.google.com/webstore/detail/purity-vision/ehejamagbbpikajgiienapjpoehgcpia' target='_blank' rel='noreferrer'>
             <Button className='flex gap-2'>
               <Image src={ChromeLogo} alt='' className='h-fit' />
               <span>Get the Extension</span>
             </Button>
           </Link>
-          <Button className='w-32' onClick={() => {
-            const el = document.getElementById('get-started')
-            if (el === undefined) return
-            el?.scrollIntoView({ behavior: 'smooth' })
-          }}>
+          <Button
+            onClick={() => {
+              const el = document.getElementById('get-started')
+              if (el === undefined) return
+              el?.scrollIntoView({ behavior: 'smooth' })
+            }}
+          >
             Learn More
           </Button>
         </div>

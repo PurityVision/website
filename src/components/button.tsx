@@ -12,7 +12,7 @@ const Button = ({
   <button
     onClick={onClick}
     className={`
-      px-4 py-2 transition-colors bg-gradient-to-b from-blue-300 to-blue-500 font-bold hover:from-blue-500 rounded
+      px-4 py-4 uppercase transition-all hover:scale-110 font-bold hover:from-blue-500 rounded
       text-white bg-blue-400 ${className ?? ''}
     `}
     type={type}
@@ -27,8 +27,8 @@ export const OutlineButton = ({
   <button
     onClick={onClick}
     className={`
-      px-4 py-2 text-blue-300 bg-gradient-to-b from-white to-white hover:from-blue-200 hover:to-blue-500 hover:border-white transition-colors transition-border hover:bg-blue-300 rounded font-bold
-      border-2 text-blue-300 border-blue-300 hover:text-white ${className ?? ''}
+      px-4 py-2 transition-all hover:scale-110 rounded font-bold
+      border-2 text-blue-300 border-blue-300 ${className ?? ''}
     `}
     type={type}
   >

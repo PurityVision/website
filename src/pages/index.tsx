@@ -1,10 +1,9 @@
-import FreeTrial from '@/components/FreeTrial'
+import Footer from '@/components/Footer'
 import GetExtension from '@/components/GetExtension'
 import Header from '@/components/header'
 import Hero from '@/components/hero'
 import Image from 'next/image'
 import Wave from '../../public/blue-wave.svg'
-import Footer from '@/components/Footer'
 
 interface Props {
   id?: string
@@ -14,11 +13,10 @@ const Spacer: React.FC<Props> = ({ className, id }): JSX.Element => (
   <div id={id ?? ''} className={`${className ?? ''} w-full h-12 sm:h-32`} />
 )
 
-export default function Home(): JSX.Element {
+export default function Home (): JSX.Element {
   return (
     <main>
       <Header />
-      <Spacer />
       <Hero />
       <Spacer className='bg-lightBlue' />
       <Spacer className='bg-lightBlue' />

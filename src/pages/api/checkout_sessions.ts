@@ -19,7 +19,7 @@ const stripe = new Stripe(stripeSecKey, {
   apiVersion: '2022-11-15'
 })
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse): Promise<void> {
+export default async function handler (req: NextApiRequest, res: NextApiResponse): Promise<void> {
   if (req.method === 'POST') {
     try {
       if (req.headers.origin === undefined) {

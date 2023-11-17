@@ -18,7 +18,7 @@ const Hero: React.FC = (): JSX.Element => {
               </p>
             </div>
             <a className='text-blue-400 border-transparent hover:text-green-400 transition-all border-b-2 hover:border-green-400 uppercase' href='https://k3v4s1ef850.typeform.com/to/zqZtEbzv' target='_blank' rel='noreferrer'>
-              Get Access
+              Try For Free
             </a>
           </div>
           <h1 className='text-6xl font-extrabold mb-8'>
@@ -38,12 +38,13 @@ const Hero: React.FC = (): JSX.Element => {
         </div>
         <div className='mt-16 flex flex-col md:flex-row gap-4 justify-center'>
           <Link href='https://chrome.google.com/webstore/detail/purity-vision/ehejamagbbpikajgiienapjpoehgcpia' target='_blank' rel='noreferrer'>
-            <Button className='flex gap-2'>
+            <Button className='flex justify-center gap-2 w-full'>
               <Image src={ChromeLogo} alt='' className='h-fit' />
               <span>Get the Extension</span>
             </Button>
           </Link>
           <Button
+            className='w-full md:w-fit'
             onClick={() => {
               const el = document.getElementById('get-started')
               if (el === undefined) return

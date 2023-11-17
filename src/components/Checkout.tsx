@@ -25,7 +25,7 @@ export default function Checkout (): JSX.Element {
   return (
     <form action='/api/checkout_sessions' method='POST'>
       <section>
-        <Button type='submit'>
+        <Button type='submit' className='tracking-widest'>
           Subscribe
         </Button>
       </section>

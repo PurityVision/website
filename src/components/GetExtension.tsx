@@ -1,20 +1,23 @@
+import { getStripePricePerThousand } from '@/utils'
 import Image from 'next/image'
+import Link from 'next/link'
 import { ReactNode, useEffect } from 'react'
 import toast from 'react-hot-toast'
-import RightCurveArrow from '../../public/Right-Curve-Arrow.svg'
+// import RightCurveArrow from '../../public/Right-Curve-Arrow.svg'
 import ChromeLogo from '../../public/chrome.svg'
 import GithubLogo from '../../public/github.png'
+import popupScreenshot from '../../public/popup-screenshot.png'
 import { ArrowLink } from './ArrowLink'
 import Checkout from './Checkout'
-import { loadStripe } from '@stripe/stripe-js'
-import { getStripePrice } from '@/utils'
+import Button from './button'
 
 const StepTitle = ({ children }: { children: ReactNode }): JSX.Element => (
   <h2 className='text-3xl font-bold mb-2'>{children}</h2>
 )
 
-loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ?? '')
-  .catch(err => console.log(err))
+const StepCard = ({ children, className }: { children: ReactNode, className?: string }): JSX.Element => (
+  <div className={`w-full shadow-xl xl:w-1/3 p-4 md:p-8 border-2 rounded ${className ?? ''}`}>{children}</div>
+)
 
 const GetExtension = (): JSX.Element => {
   useEffect(() => {
@@ -29,25 +32,24 @@ const GetExtension = (): JSX.Element => {
   }, [])
 
   return (
-    <div id='get-started' className='px-8 sm:px-32'>
+    <div id='get-started' className='px-2 xl:px-8'>
       <div className='mb-16 max-w-3xl'>
         <h1 className='text-4xl w-fit font-extrabold py-1 mb-4'>Get Started</h1>
       </div>
 
-      <div className='flex flex-col md:flex-row gap-32 md:gap-4 justify-between'>
+      <div className='flex flex-col xl:flex-row gap-32 justify-between'>
         {/* Install Step */}
-        <div>
-          <StepTitle>1. Install</StepTitle>
+        <StepCard>
+          <StepTitle>Install</StepTitle>
           <div className='mt-8'>
             <div>
-              <p className='text-xl font-semibold'>Get on the Chrome store</p>
-              <div className='flex items-center gap-4'>
-                <Image src={ChromeLogo} alt='' className='h-fit' />
-                <ArrowLink
-                  text='Install Extension'
-                  href='https://chrome.google.com/webstore/detail/purity-vision/ehejamagbbpikajgiienapjpoehgcpia'
-                />
-              </div>
+              <p className='text-xl font-semibold mb-2'>Get on the Chrome store</p>
+              <Link href='https://chrome.google.com/webstore/detail/purity-vision/ehejamagbbpikajgiienapjpoehgcpia' target='_blank' rel='noreferrer'>
+                <Button className='flex gap-2'>
+                  <Image src={ChromeLogo} alt='' className='h-fit' />
+                  <span className='whitespace-nowrap'>Get Extension</span>
+                </Button>
+              </Link>
             </div>
 
             <p className='my-8 font-bold'>OR</p>
@@ -63,21 +65,18 @@ const GetExtension = (): JSX.Element => {
                 />
               </div>
             </div>
-
           </div>
-        </div>
-
-        <Image src={RightCurveArrow} alt='' className='w-[150px] rotate-90 md:rotate-0 stroke-blue-400 text-blue-400 fill-blue-400' />
+        </StepCard>
 
         {/* Subscribe Step */}
-        <div>
-          <StepTitle>2. Pay As You Go</StepTitle>
-          <p className='text-xl my-8 border w-fit px-2 rounded border-green-400 bg-green-400'>
-            <span className='text-xl font-extrabold'>{getStripePrice()}$</span> / 1k images
-          </p>
+        <StepCard>
+          <StepTitle>Subscribe</StepTitle>
           <div>
+            <p className='mt-4 text-xl font-semibold'>Price:</p>
+            <p className='text-xl mt-4 mb-8 border w-fit p-4 rounded bg-slate-100 shadow-inner'>
+              <span className='text-xl font-bold'>${(getStripePricePerThousand()).toPrecision(3)}</span> / 1000 images
+            </p>
             <ul className='list-[square] my-8 px-4 text-lg lh-4'>
-              <li>e.g. filtering a web page with 100 images costs ${(getStripePrice() / 1000 * 100).toFixed(4)}!</li>
               <li>No monthly minimum charge</li>
               <li>Only pay when the app is enabled and filtering images</li>
               <li>Never pay twice for the same image</li>
@@ -88,18 +87,20 @@ const GetExtension = (): JSX.Element => {
             ? <LoginButton>Start Now</LoginButton>
             : <Checkout />} */}
           </div>
-        </div>
-
-        <Image src={RightCurveArrow} alt='' className='w-[150px] rotate-90 md:rotate-0' />
+        </StepCard>
 
         {/* Step 3 */}
-        <div>
-          <StepTitle>3. Enjoy</StepTitle>
+        <StepCard>
+          <StepTitle>Enjoy</StepTitle>
+          <ol className='mt-4 text-xl list-decimal list-inside'>
+            <li>Enter your license into the extension popup</li>
+            <li>Enable the filter for your desired websites</li>
+            <li>Enjoy a pure web!</li>
+          </ol>
           <div className='mt-8'>
-            <p className='text-2xl'>Enjoy a pure web.</p>
+            <Image src={popupScreenshot} className='border' alt='' />
           </div>
-        </div>
-
+        </StepCard>
       </div>
     </div>
   )

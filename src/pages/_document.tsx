@@ -1,11 +1,9 @@
-import { Html, Head, Main, NextScript } from 'next/document'
+import { Html, Main, Head, NextScript } from 'next/document'
 
 export default function Document (): JSX.Element {
   return (
     <Html lang='en'>
-      <Head>
-        <title>Purity Vision</title>
-      </Head>
+      <Head />
       <body>
         <Main />
         <NextScript />

@@ -16,7 +16,7 @@ const StepTitle = ({ children }: { children: ReactNode }): JSX.Element => (
 )
 
 const StepCard = ({ children, className }: { children: ReactNode, className?: string }): JSX.Element => (
-  <div className={`w-full shadow-xl xl:w-1/3 p-4 md:p-8 border-2 rounded ${className ?? ''}`}>{children}</div>
+  <div className={`w-full xl:w-1/3 p-4 md:p-8 rounded ${className ?? ''}`}>{children}</div>
 )
 
 const GetExtension = (): JSX.Element => {
@@ -40,7 +40,7 @@ const GetExtension = (): JSX.Element => {
       <div className='flex flex-col xl:flex-row gap-32 justify-between'>
         {/* Install Step */}
         <StepCard>
-          <StepTitle>Install</StepTitle>
+          <StepTitle>1. Install</StepTitle>
           <div className='mt-8'>
             <div>
               <p className='text-xl font-semibold mb-2'>Get on the Chrome store</p>
@@ -70,28 +70,30 @@ const GetExtension = (): JSX.Element => {
 
         {/* Subscribe Step */}
         <StepCard>
-          <StepTitle>Subscribe</StepTitle>
+          <StepTitle>2. Subscribe</StepTitle>
           <div>
-            <p className='mt-4 text-xl font-semibold'>Price:</p>
-            <p className='text-xl mt-4 mb-8 border w-fit p-4 rounded bg-slate-100 shadow-inner'>
-              <span className='text-xl font-bold'>${(getStripePricePerThousand()).toPrecision(3)}</span> / 1000 images
-            </p>
+            <div className='my-8'>
+              <span className='text-3xl font-extrabold'>${(getStripePricePerThousand()).toPrecision(3)}</span>
+              <span className='font-semibold text-gray-600'> /1000 images</span>
+            </div>
             <ul className='list-[square] my-8 px-4 text-lg lh-4'>
               <li>No monthly minimum charge</li>
               <li>Only pay when the app is enabled and filtering images</li>
               <li>Never pay twice for the same image</li>
               <li>Cancel anytime</li>
             </ul>
+            <div className='my-4'>
+              <a className='text-blue-400 border-transparent hover:text-green-400 transition-all border-b-2 hover:border-green-400 uppercase' href='https://k3v4s1ef850.typeform.com/to/zqZtEbzv' target='_blank' rel='noreferrer'>
+                Try For Free
+              </a>
+            </div>
             <Checkout />
-            {/* {((session?.user) == null)
-            ? <LoginButton>Start Now</LoginButton>
-            : <Checkout />} */}
           </div>
         </StepCard>
 
         {/* Step 3 */}
         <StepCard>
-          <StepTitle>Enjoy</StepTitle>
+          <StepTitle>3. Enjoy</StepTitle>
           <ol className='mt-4 text-xl list-decimal list-inside'>
             <li>Enter your license into the extension popup</li>
             <li>Enable the filter for your desired websites</li>

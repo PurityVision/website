@@ -37,7 +37,7 @@ const GetExtension = (): JSX.Element => {
         <h1 className='text-4xl w-fit font-extrabold py-1 mb-4'>Get Started</h1>
       </div>
 
-      <div className='flex flex-col xl:flex-row gap-32 justify-between'>
+      <div className='flex flex-col lg:flex-row justify-between'>
         {/* Install Step */}
         <StepCard>
           <StepTitle>1. Install</StepTitle>
@@ -95,9 +95,9 @@ const GetExtension = (): JSX.Element => {
         <StepCard>
           <StepTitle>3. Enjoy</StepTitle>
           <ol className='mt-4 text-xl list-decimal list-inside'>
-            <li>Enter your license into the extension popup</li>
-            <li>Enable the filter for your desired websites</li>
-            <li>Enjoy a pure web!</li>
+            <li>Get your license</li>
+            <li>Enter your license in the extension</li>
+            <li>Enable filtering</li>
           </ol>
           <div className='mt-8'>
             <Image src={popupScreenshot} className='border' alt='' />

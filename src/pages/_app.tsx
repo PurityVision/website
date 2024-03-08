@@ -3,6 +3,8 @@ import type { AppProps } from 'next/app'
 import { Toaster } from 'react-hot-toast'
 import { Inter } from 'next/font/google'
 import Head from 'next/head'
+import { Analytics } from '@vercel/analytics/react'
+
 
 // If loading a variable font, you don't need to specify the font weight
 const inter = Inter({
@@ -10,7 +12,7 @@ const inter = Inter({
   display: 'swap'
 })
 
-export default function App ({ Component, pageProps }: AppProps): JSX.Element {
+export default function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <>
       <Head>
@@ -19,6 +21,7 @@ export default function App ({ Component, pageProps }: AppProps): JSX.Element {
       <main className={inter.className}>
         <Toaster />
         <Component {...pageProps} />
+        <Analytics />
       </main>
     </>
   )

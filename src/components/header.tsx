@@ -14,7 +14,7 @@ const Header: React.FC = (): JSX.Element => {
           <p className='text-xl font-extrabold uppercase text-transparent bg-clip-text bg-gradient-to-br from-green-300 to-blue-400'>Purity Vision</p>
         </div>
       </Link>
-      <a href={customerPortalURL} className='w-full md:w-fit'>
+      {/*<a href={customerPortalURL} className='w-full md:w-fit'>*/}
         <OutlineButton
           className='w-full md:w-fit' onClick={e => {
             // e.preventDefault()
@@ -23,7 +23,7 @@ const Header: React.FC = (): JSX.Element => {
         >
           Manage Subscription
         </OutlineButton>
-      </a>
+      {/*</a>*/}
     </header>
   )
 }
